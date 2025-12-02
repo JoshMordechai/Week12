@@ -1,26 +1,23 @@
 package Tugas;
 
 
-import  java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import  java.io.FileWriter;
+import java.io.IOException;
 
 public class file_handling {
 	
 	public static void main(String[] args) {
 		try {
-			File Obj = new File("myfile.txt");
-			Scanner Reader = new Scanner(Obj);
-			while (Reader.hasNextLine()) {
-				String data = Reader.nextLine();
-				System.out.println(data);
-			}
-			Reader.close();
+			FileWriter Writer
+				= new FileWriter("myfile.txt");
+			Writer.write("Nama saya John Doe\n");
+			Writer.write("Saya dari Universitas Multimedia Nusantara");
+			Writer.close();
+			System.out.println("SUccesfully written");
 		}
-		catch (FileNotFoundException e) {
+		catch (IOException e) {
 			System.out.println("AN error has occurred.");
 			e.printStackTrace();
 		}
 	}
-
 }
